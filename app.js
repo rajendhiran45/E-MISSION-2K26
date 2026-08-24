@@ -77,7 +77,6 @@ function tick() {
 }
 tick();
 setInterval(tick, 60000);
-if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js");
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("sw.js?v=3");
 }
