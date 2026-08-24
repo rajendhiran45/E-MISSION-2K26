@@ -1,5 +1,5 @@
 .gallery-page {
-  background: #080d1e;
+  background: #030303;
   color: var(--ink);
 }
 .gallery-hero {
@@ -7,7 +7,7 @@
   padding-top: 190px;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(120deg, #080d1e, #101938);
+  background: radial-gradient(circle at 80% 15%, rgba(193, 145, 46, 0.2), transparent 32%), linear-gradient(120deg, #030303, #171108);
 }
 
 .gallery-hero h1 {
@@ -23,7 +23,7 @@
 }
 .gallery-hero p {
   max-width: 580px;
-  color: #aab5d5;
+  color: #c8bdab;
   font-size: 17px;
   line-height: 1.7;
 }
@@ -53,7 +53,7 @@
 .photo-placeholder,
 .post-event-card {
   border: 1px solid var(--line);
-  background: #101938;
+  background: #100e09;
 }
 .video-card {
   min-height: 330px;
@@ -69,7 +69,7 @@
   display: block;
 }
 .video-placeholder {
-  background: radial-gradient(circle at 50% 20%, #334681, #101938 62%);
+  background: radial-gradient(circle at 50% 20%, #6a4d17, #100e09 62%);
 }
 .play-mark {
   width: 56px;
@@ -79,7 +79,7 @@
   place-items: center;
   margin-bottom: auto;
   padding-left: 3px;
-  color: #0b1126;
+  color: #130e05;
   background: var(--lime);
 }
 .video-card p,
@@ -91,7 +91,7 @@
 }
 .video-card span,
 .photo-placeholder p {
-  color: #aab5d5;
+  color: #c8bdab;
   font:
     11px "DM Mono",
     monospace;
@@ -118,7 +118,7 @@
 .photo-placeholder {
   min-height: 310px;
   overflow: hidden;
-  background: linear-gradient(145deg, #161f44, #0e1430);
+  background: linear-gradient(145deg, #211808, #0d0b07);
   border-radius: 12px;
   padding: 0;
 }
@@ -135,11 +135,11 @@
   gap: 30px;
   max-width: 900px;
   padding: 30px;
-  background: linear-gradient(105deg, #15204b, #0e1430);
+  background: linear-gradient(105deg, #251a08, #0d0b07);
 }
 .post-event-card > span {
   padding: 16px 11px;
-  color: #0c132c;
+  color: #130e05;
   background: var(--lime);
   font:
     800 15px "DM Mono",
@@ -153,7 +153,7 @@
 }
 .post-event-card p {
   margin: 0;
-  color: #b7c1df;
+  color: #c8bdab;
   line-height: 1.6;
 }
 .post-event-card code {
@@ -198,7 +198,7 @@
 }
 .share-gallery:hover,
 .share-gallery:focus-visible {
-  color: #0b1126;
+  color: #130e05;
   background: var(--lime);
   border-color: var(--lime);
 }
@@ -227,7 +227,7 @@
 }
 .filter-button:hover,
 .filter-button.active {
-  color: #0b1126;
+  color: #130e05;
   background: var(--lime);
   border-color: var(--lime);
 }
@@ -242,7 +242,7 @@
   padding: 0;
   border: 1px solid var(--line);
   border-radius: 12px;
-  background: #101938;
+  background: #100e09;
   color: var(--ink);
   text-align: left;
   cursor: zoom-in;
@@ -262,7 +262,7 @@
   display: grid;
   gap: 5px;
   padding: 46px 17px 16px;
-  background: linear-gradient(transparent, rgba(5, 9, 22, 0.96) 58%);
+  background: linear-gradient(transparent, rgba(4, 3, 1, 0.96) 58%);
   font:
     700 15px "Space Grotesk",
     sans-serif;
@@ -278,7 +278,7 @@
   font:
     500 10px "DM Mono",
     monospace;
-  color: #c7d1ee;
+  color: #ead8a8;
   font-style: normal;
 }
 .photo-card:hover img,
@@ -300,7 +300,7 @@
   align-items: center;
   padding: 31px;
   border: 1px solid var(--line);
-  background: radial-gradient(circle at 10% 0%, #343f82, #101938 55%);
+  background: radial-gradient(circle at 10% 0%, #69501c, #100e09 55%);
 }
 .instagram-handle {
   display: flex;
@@ -313,7 +313,7 @@
   display: grid;
   place-content: center;
   background: var(--lime);
-  color: #0b1126;
+  color: #130e05;
   border-radius: 50%;
   font-size: 27px;
 }
@@ -321,7 +321,7 @@
   font:
     10px "DM Mono",
     monospace;
-  color: #b8c4e7;
+  color: #d8c9a9;
 }
 .instagram-handle h3 {
   margin: 5px 0 0;
@@ -345,7 +345,7 @@
 }
 .instagram-follow {
   padding: 13px 15px;
-  color: #0b1126;
+  color: #130e05;
   background: var(--lime);
   text-decoration: none;
   white-space: nowrap;
@@ -358,7 +358,7 @@
   padding: 0;
   overflow: visible;
   border: 1px solid var(--line);
-  background: #070b19;
+  background: #080705;
   color: var(--ink);
 }
 .lightbox::backdrop {
@@ -373,7 +373,7 @@
   width: 100%;
   max-height: min(76vh, 760px);
   object-fit: contain;
-  background: #03050d;
+  background: #030302;
 }
 .lightbox figcaption {
   display: flex;
@@ -397,7 +397,7 @@
   position: absolute;
   z-index: 1;
   border: 1px solid var(--line);
-  background: rgba(8, 13, 30, 0.88);
+  background: rgba(12, 9, 4, 0.9);
   color: var(--ink);
   cursor: pointer;
 }
@@ -426,7 +426,7 @@
   right: 15px;
   bottom: 13px;
   padding: 10px 12px;
-  color: #0b1126;
+  color: #130e05;
   background: var(--lime);
   text-decoration: none;
   font: 800 10px var(--font);
@@ -439,7 +439,7 @@
   transform: translate(-50%, 100px);
   padding: 12px 17px;
   background: var(--lime);
-  color: #071019;
+  color: #130e05;
   font-size: 12px;
   font-weight: 800;
   transition: 0.3s;
