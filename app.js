@@ -77,8 +77,3 @@ function tick() {
 }
 tick();
 setInterval(tick, 60000);
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.getRegistrations().then((registrations) => {
-    registrations.forEach((registration) => registration.unregister());
-  });
-}
