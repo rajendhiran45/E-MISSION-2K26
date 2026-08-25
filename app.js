@@ -61,7 +61,7 @@ $("#copyLink").onclick = async () => {
 $("#calendar").onclick = () => {
   let start = "20260917T033000Z",
     end = "20260917T113000Z",
-    u = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=E-MISSION+2K26&dates=${start}/${end}&details=19th+State+Level+Technical+Symposium&location=EDISION+HALL,+M.A.M.+College+of+Engineering`;
+    u = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=E-MISSION+2K26&dates=${start}/${end}&details=19th+State+Level+Technical+Symposium&location=EDISON+HALL,+M.A.M.+College+of+Engineering`;
   window.open(u, "_blank");
 };
 function tick() {
