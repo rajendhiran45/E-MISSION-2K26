@@ -9,31 +9,54 @@ $$('#menu a').forEach(a => a.onclick = () => $('#menu').classList.remove('open')
 const filters = $$('.filter-button');
 const items = $$('.gallery-item');
 const mediaGroups = $$('.media-group');
+
+const categoryForPhoto = photo => {
+  const source = photo.querySelector('img')?.getAttribute('src') || '';
+  if (source.includes("/Arjuna's/")) return 'arjunas';
+  if (source.includes('/Paper Presentation/')) return 'presentation';
+  if (source.includes('/Rank Holders/')) return 'rank-holders';
+  return 'inauguration';
+};
+function applyFilter(filter) {
+  items.forEach(item => { item.hidden = filter !== 'all' && item.dataset.category !== filter; });
+  mediaGroups.forEach(group => {
+    group.hidden = filter !== 'all' && ![...group.querySelectorAll('.gallery-item')].some(item => !item.hidden);
+  });
+}
 filters.forEach(button => button.addEventListener('click', () => {
   const filter = button.dataset.filter;
   filters.forEach(item => item.classList.toggle('active', item === button));
-  mediaGroups.forEach(group => group.hidden = filter !== 'all' && group.dataset.category !== filter);
-  items.forEach(item => item.hidden = filter !== 'all' && item.dataset.category !== filter);
+  applyFilter(filter);
 }));
 
 const photos = [...$$('.photo-card')];
+photos.forEach(photo => { photo.dataset.category = categoryForPhoto(photo); });
 const lightbox = $('#lightbox');
 const lightboxImage = $('#lightboxImage');
 const lightboxCaption = $('#lightboxCaption');
 const lightboxCount = $('#lightboxCount');
 const lightboxDownload = $('#lightboxDownload');
 let activePhoto = 0;
-function showPhoto(index) {
-  activePhoto = (index + photos.length) % photos.length;
-  const photo = photos[activePhoto];
-  lightboxImage.src = photo.dataset.full;
-  lightboxImage.alt = photo.dataset.caption;
-  lightboxCaption.textContent = photo.dataset.caption;
-  lightboxCount.textContent = `${String(activePhoto + 1).padStart(2, '0')} / ${String(photos.length).padStart(2, '0')}`;
-  lightboxDownload.href = photo.dataset.full;
-  lightboxDownload.download = photo.dataset.full.split('/').pop();
+let activePhotos = photos;
+const photoSource = photo => photo.querySelector('img')?.getAttribute('src') || photo.dataset.full;
+function photoCaption(photo) {
+  const label = photo.querySelector('span');
+  return [...(label?.childNodes || [])].filter(node => node.nodeType === Node.TEXT_NODE).map(node => node.textContent.trim()).filter(Boolean).join(' ') || photo.dataset.caption || photo.querySelector('img')?.alt || 'Gallery photo';
 }
-photos.forEach((photo, index) => photo.addEventListener('click', () => { showPhoto(index); lightbox.showModal(); }));
+function showPhoto(index) {
+  activePhotos = photos.filter(photo => !photo.hidden);
+  activePhoto = (index + activePhotos.length) % activePhotos.length;
+  const photo = activePhotos[activePhoto];
+  const source = photoSource(photo);
+  const caption = photoCaption(photo);
+  lightboxImage.src = source;
+  lightboxImage.alt = caption;
+  lightboxCaption.textContent = caption;
+  lightboxCount.textContent = `${String(activePhoto + 1).padStart(2, '0')} / ${String(activePhotos.length).padStart(2, '0')}`;
+  lightboxDownload.href = source;
+  lightboxDownload.download = source.split('/').pop();
+}
+photos.forEach(photo => photo.addEventListener('click', () => { activePhotos = photos.filter(item => !item.hidden); showPhoto(activePhotos.indexOf(photo)); lightbox.showModal(); }));
 $('.lightbox-close').onclick = () => lightbox.close();
 $('.lightbox-nav.previous').onclick = () => showPhoto(activePhoto - 1);
 $('.lightbox-nav.next').onclick = () => showPhoto(activePhoto + 1);
