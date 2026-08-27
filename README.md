@@ -59,7 +59,7 @@ E-MISSION-2K26/
 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/E-MISSION-2K26.git
+git clone https://github.com/rajendhiran45/E-MISSION-2K26.git
 ```
 
 2. Open the project folder.
